@@ -1,20 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./components/App";
+
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+import reducer from './reducers/smurfReducer';
+import GetSmurf from './actions/smurfAction';
+import Smurf from './components/Smurf';
+import NewSmurf from './components/NewSmurf'
 
-import reducer from './reducers/smurfReducer'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore (
-    reducer, 
-    composeEnhancers(applyMiddleware(thunk, logger))
-);
+const store = createStore(reducer, applyMiddleware(thunk))
+
+function App (){
+    
+      return (
+        <div className="App">
+          <h1>SMURFS VILLAGE</h1>
+          
+              <GetSmurf/>
+              <Smurf/>
+              <NewSmurf/> 
+        </div>
+      );
+    
+}
 
 
 const rootElement = document.getElementById('root');

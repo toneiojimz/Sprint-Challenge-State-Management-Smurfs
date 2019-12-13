@@ -1,83 +1,60 @@
 import {
-    FETCH_NAME_START,
-    FETCH_AGE_START,
-    FETCH_HEIGHT_START,
-    FETCH_NAME_SUCCESS,
-    FETCH_AGE_SUCCESS,
-    FETCH_HEIGHT_SUCCESS,
-    FETCH_NAME_FAILURE,
-    FETCH_AGE_FAILURE,
-    FETCH_HEIGHT_FAILURE
+    FETCH_START,
+    FETCH_SUCCESS,
+    FETCH_FAILURE,
+    NEW_SMURF,
+    NEW_SMURF_SUCCESS,
+    NEW_SMURF_FAILURE
 
 } from '../actions/smurfAction';
 
 const initialState= {
-    name:null,
+    smurfs:[],
     isFetching: false,
     error: '',
 
-    age: null,
-    isFetching: false,
-    error: '',
-
-    heigt: null,
-    isFetching: false,
-    error: ''
+  
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type){
-        case FETCH_NAME_START:
+        case FETCH_START:
             return {
                 ...state,
-                isFetching:true
-            };
-
-        case FETCH_NAME_SUCCESS: 
-            return {
-                ...state,
-                name: action.payload,
                 isFetching:true,
                 error: ''
             };
-        case FETCH_NAME_FAILURE:
+
+        case FETCH_SUCCESS: 
+            return {
+                ...state,
+                smurfs: action.payload,
+                isFetching:true,
+                error: ''
+            };
+        case FETCH_FAILURE:
             return{
                 ...state,
                 isFetching: false, 
                 error: action.payload
             };
 
-            case FETCH_AGE_START:
+           
+            case NEW_SMURF:
                     return {
                         ...state,
-                        isFetching:true
-            };
-            case FETCH_AGE_SUCCESS: 
-                return {
-                ...state,
-                age: action.payload,
-                isFetching:true,
-                error: ''
-            };
-            case FETCH_AGE_FAILURE:
-            return{
-                ...state,
-                isFetching: false, 
-                error: action.payload
-            };
-            case FETCH_HEIGHT_START:
-                    return {
-                        ...state,
-                        isFetching:true
-            };
-            case FETCH_HEIGHT_SUCCESS: 
-                return {
-                        ...state,
-                        age: action.payload,
+                        smurfs : [...state.smurfs, action.payload],
                         isFetching:true,
                         error: ''
             };
-            case FETCH_HEIGHT_FAILURE:
+            case NEW_SMURF_SUCCESS: 
+                return {
+                        ...state,
+                        smurfs: action.payload,
+                        isFetching:false,
+                        error: ''
+            };
+            case NEW_SMURF_FAILURE:
                     return{
                         ...state,
                         isFetching: false, 

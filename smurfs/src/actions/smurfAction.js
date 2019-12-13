@@ -1,28 +1,40 @@
+import React from 'react';
 import axios from 'axios';
 
-    export const FETCH_NAME_START= 'FETCH_NAME_START';
-    export const FETCH_AGE_START= 'FETCH_AGE_START';
-    export const FETCH_HEIGHT_START= 'FETCH_HEIGHT_START';
+export const FETCH_START= 'FETCH_START';
+export const FETCH_SUCCESS= 'FETCH__SUCCESS';
+export const FETCH_FAILURE= 'FETCH_FAILURE';
+export const NEW_SMURF= 'NEW_SMURF';
+export const NEW_SMURF_SUCCESS= 'NEW_SMURF_SUCCESS';
+export const NEW_SMURF_FAILURE= 'NEW_SMURF_FAILURE';
 
+  
 
-    export const FETCH_NAME_SUCCESS= 'FETCH_NAME_SUCCESS';
-    export const FETCH_AGE_SUCCESS= 'FETCH_AGE_SUCCESS';
-    export const FETCH_AGE_FAILURE= 'FETCH_AGE_FAILURE';
-
-    export const FETCH_NAME_FAILURE= 'FETCH_NAME_FAILURE';
-    export const FETCH_HEIGHT_SUCCESS= 'FETCH_HEIGHT_SUCCESS';
-    export const FETCH_HEIGHT_FAILURE= 'FETCH_HEIGHT_FAILURE';
-
-    export const getSmurf= () => dispatch => {
-        dispatch({ type: FETCH_NAME_START, FETCH_AGE_START, FETCH_HEIGHT_START});
+   const GetSmurf = () => dispatch => {
+        dispatch({ type: FETCH_START});
 
         axios
             .get('http://localhost:3333/smurfs')
             .then(res => {
                 console.log(res);
-                dispatch({ type: FETCH_NAME_SUCCESS, FETCH_AGE_SUCCESS, FETCH_HEIGHT_SUCCESS, payload: res.data})
+                dispatch({ type: FETCH_SUCCESS, payload: res.data})
             })
-            .catch( err =>{
-                dispatch({ type: FETCH_NAME_FAILURE, FETCH_AGE_FAILURE, FETCH_HEIGHT_FAILURE, payload: err.res})
+            .catch( error =>{
+                dispatch({ type: FETCH_FAILURE, payload: error.res})
             });
     };
+    export default GetSmurf;
+
+    export const newSmu= (smurf) => (dispatch) => {
+        dispatch({type: NEW_SMURF });
+
+        return(
+            axios 
+                .post(`http://localhost:3333/smurfs`, smurf )
+                .then((res) => dispatch({type: NEW_SMURF_SUCCESS, payload: res.data}))
+                .catch((err)=> dispatch({type: NEW_SMURF_FAILURE, payload: err}))
+
+        )
+    };
+
+    

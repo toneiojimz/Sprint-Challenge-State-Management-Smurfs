@@ -1,12 +1,7 @@
 export{
-    FETCH_NAME_START,
-    FETCH_AGE_START,
-    FETCH_HEIGHT_START,
-    FETCH_NAME_SUCCESS,
-    FETCH_AGE_SUCCESS,
-    FETCH_HEIGHT_SUCCESS,
-    FETCH_NAME_FAILURE,
-    FETCH_AGE_FAILURE,
-    FETCH_HEIGHT_FAILURE,
-    getSmurf
+    FETCH_START,
+    FETCH_SUCCESS,
+    FETCH_FAILURE,
+    getSmurf,
+    addSmu
 } from './smurfAction'
