@@ -9,6 +9,21 @@ import reducer from './reducers/smurfReducer';
 
 import NewSmurf from './components/NewSmurf'
 import SmurfVillage from './components/SmurfVillage'
+import styled from 'styled-components';
+
+
+const Page = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 900px:
+  flex-wrap: wrap;
+`;
+
+const H1 = styled.h1`
+  font-size: 3rem;
+  text-decoration: skyblue underline overline wavy;
+`;
 
 
 
@@ -17,12 +32,13 @@ const store = createStore(reducer, applyMiddleware(thunk))
 function App (){
     
       return (
-        <div className="App">
-          <h1>SMURFS VILLAGE</h1>
-          
+        <Page className="App">
+          <H1>SMURF VILLAGE</H1>
+              <NewSmurf/>
+             
               <SmurfVillage/>
-              <NewSmurf/> 
-        </div>
+               
+        </Page>
       );
     
 }

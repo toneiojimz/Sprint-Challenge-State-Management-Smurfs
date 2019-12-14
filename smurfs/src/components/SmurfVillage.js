@@ -2,6 +2,21 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import {GetSmurf} from '../actions/smurfAction';
 import {Smurf} from './Smurf';
+import styled from 'styled-components';
+
+
+const Villa = styled.div`
+    display: flex;
+    width: 900px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    
+  
+    
+    
+`;
+
+
 
 export const SmurfVillage =({GetSmurf, smurfs}) => {
     useEffect(() =>{
@@ -11,11 +26,11 @@ export const SmurfVillage =({GetSmurf, smurfs}) => {
    
     console.log(SmurfVillage)
     return(
-        <div>
+        <Villa >
             {smurfs.map(sf =>(
-                <Smurf blue={sf}/>
+                <Smurf name={sf.name} age={sf.age} height={sf.height}/>
             ))}
-        </div>
+        </Villa>
     );
 };
 
