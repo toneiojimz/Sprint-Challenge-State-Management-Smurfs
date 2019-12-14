@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { connect } from "react-redux";
 import { newSmu }  from "../actions/smurfAction"
 
-const NewSmurf = props => {
+const AddSmurf = props => {
     const[smurf, setSmurf ] = useState({name: "", age:"", height:""})
 
     
@@ -22,27 +22,23 @@ const NewSmurf = props => {
 
     return (
         <form onSubmit={values}>
-            <label>Name
+            
             <input
                 type= "text"
                 name="name"
                 id= "smurfname"
                 onChange={handleChanges}   
-                placeholder="name"
                 value= {smurf.name}
+                placeholder="name"
             />
-            </label>
-            <label>Age
             <input
                 type= "text"
                 name="age"
                 id= "smurfage"
                 onChange={handleChanges}   
-                placeholder="age"
                 value= {smurf.age}
+                placeholder="age"   
             />
-            </label>
-            <label>Height
             <input
                 type= "text"
                 name="height"
@@ -50,8 +46,7 @@ const NewSmurf = props => {
                 onChange={handleChanges}   
                 placeholder="height"
                 value= {smurf.height}
-            />
-            </label>
+            />  
             <button onClick={values}> Add New Smurf </button>
         </form>
     );
@@ -60,4 +55,4 @@ const NewSmurf = props => {
 export default connect (
     null,
     {newSmu}
-)(NewSmurf);
+)(AddSmurf);

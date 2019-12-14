@@ -1,24 +1,23 @@
 import {
-    FETCH_START,
+    START_FETCH,
     FETCH_SUCCESS,
     FETCH_FAILURE,
     NEW_SMURF,
     NEW_SMURF_SUCCESS,
     NEW_SMURF_FAILURE
 
-} from '../actions/smurfAction';
+} from '../actions';
 
 const initialState= {
     smurfs:[],
     isFetching: false,
-    error: '',
+    error: ''
 
-  
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type){
-        case FETCH_START:
+        case START_FETCH:
             return {
                 ...state,
                 isFetching:true,

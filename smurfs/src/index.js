@@ -2,13 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import reducer from './reducers/smurfReducer';
-import GetSmurf from './actions/smurfAction';
-import Smurf from './components/Smurf';
+
 import NewSmurf from './components/NewSmurf'
+import SmurfVillage from './components/SmurfVillage'
 
 
 
@@ -20,8 +20,7 @@ function App (){
         <div className="App">
           <h1>SMURFS VILLAGE</h1>
           
-              <GetSmurf/>
-              <Smurf/>
+              <SmurfVillage/>
               <NewSmurf/> 
         </div>
       );

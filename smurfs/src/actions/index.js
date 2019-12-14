@@ -1,7 +1,11 @@
-export{
-    FETCH_START,
-    FETCH_SUCCESS,
-    FETCH_FAILURE,
-    getSmurf,
-    addSmu
-} from './smurfAction'
+export {
+ START_FETCH,
+ FETCH_SUCCESS,
+ FETCH_FAILURE,
+ NEW_SMURF,
+ NEW_SMURF_SUCCESS,
+ NEW_SMURF_FAILURE,
+// GetSmurf
+
+} from './smurfAction';
+

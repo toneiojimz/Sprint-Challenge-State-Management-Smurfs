@@ -1,13 +1,18 @@
 import React from 'react';
 
-const Smurf = (props) => {
+
+
+
+export const Smurf = ({blue}) => {
+  
     return(
         <div>
-            <p>Name: {props.name && props.isFetching}</p>
-            <p>Age: {props.age && props.isFetching}</p>
-            <p>Height: {props.height && props.isFetching}</p>
+            <p>Name: {blue.name} Smurf</p>
+            <p>Age: {blue.age} years</p>
+            <p>Height: {blue.height} cm</p>
         </div>
     )
 };
 
-export default Smurf;
+
+
