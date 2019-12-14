@@ -32,7 +32,7 @@ export const SmurfVillage =({GetSmurf, smurfs, isFetching}) => {
     }, [GetSmurf]);
     if(isFetching){
         // return <a> src= {smurf} alt="Smurf Image"</a>
-        return <H1> ....Getting Smurfed....</H1>
+        return <H1> ....Get Smurfed....</H1>
     }
    
     return(
